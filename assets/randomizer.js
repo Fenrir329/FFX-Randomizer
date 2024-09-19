@@ -34,9 +34,14 @@ function scrambleGrid() {
     new Uint8Array(0x6900) :
     new Uint8Array(0x64f8);
 
+  const SCRAMBLE_STATS = 
+    document.getElementById("scramble-randomize").value === "Scramble"
+    ;
+	
   const RANDOM_STATS = 
-    document.getElementById("scramble-randomize").value === "Scramble";
-
+    document.getElementById("scramble-randomize").value === "Randomize"
+    ;
+	
   const RANDOM_ABILITIES = document.getElementById("scramble-abilities")
     .checked;
 
@@ -74,15 +79,10 @@ function scrambleGrid() {
   SAVEFILE[0xfd] = 0x00;
 
   //Shuffle stats
-  if (RANDOM_STATS && STANDARDGRID) {
+  if (SCRAMBLE_STATS && STANDARDGRID) {
 	STATUS_MSG.innerHTML = "Shuffling stats...";
 	var STATS = [];
-	var allStats = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,]
-	var count = 200;
-	for( var i = 0; i < count; i++){
-		STATS.push(allStats[Math.floor(Math.random() * allStats.length)]);
-	}
-	console.log(STATS);
+	
 	
 	
 	
@@ -123,7 +123,7 @@ function scrambleGrid() {
 	STATS = shuffle(STATS);
 	STATS = shuffle(STATS);
 	STATUS_MSG.innerHTML += STATUS_CHECK;
-  } else if (RANDOM_STATS) {
+  } else if (SCRAMBLE_STATS) {
 	STATUS_MSG.innerHTML = "Shuffling stats...";
 	var STATS = [];
 	for (var i = 0; i < 11; i++) STATS.push(0x02); //STR+1
@@ -166,7 +166,24 @@ function scrambleGrid() {
 	STATS = shuffle(STATS);
 	STATUS_MSG.innerHTML += STATUS_CHECK;
   }
-
+  var allStats = STANDARDGRID? [0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x0b,0x0c,0x0d,0x0e,0x0f,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x19,0x1a,0x1b,0x1c,0x1d,0x1e,0x1f,0x20,0x21,0x22,0x23,0x24,0x25]
+							:  [0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x0b,0x0c,0x0d,0x0e,0x0f,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x18,0x19,0x1a,0x1b,0x1c,0x1d,0x1e,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26];
+							
+  var count = STANDARDGRID? 507 : 443;
+  
+	if (RANDOM_STATS) {
+        STATUS_MSG.innerHTML = "Randomizing stats...";
+        var STATS = [];
+        
+		for( var i = 0; i < count; i++){
+		STATS.push(allStats[Math.floor(Math.random() * allStats.length)]);
+		}
+        // STATS = shuffle(STATS);
+        // STATS = shuffle(STATS);
+        STATUS_MSG.innerHTML += STATUS_CHECK;
+		
+    }
+	  
   if (RANDOM_ABILITIES) {
 	var ABILITIES = [];
 	for (var i = 0x2a; i < 0x7f; i++) {
@@ -182,9 +199,9 @@ function scrambleGrid() {
   var c_stats = 0;
   var c_abilities = 0;
 
-  if (RANDOM_STATS || RANDOM_ABILITIES) {
+  if (SCRAMBLE_STATS || RANDOM_ABILITIES || RANDOM_STATS) {
 	for (var i = 0x222c; i < 0x28de; i += 2) {
-	  if (RANDOM_STATS && SAVEFILE[i] > 1 && SAVEFILE[i] < 39) {
+	  if ((SCRAMBLE_STATS || RANDOM_STATS) && SAVEFILE[i] > 1 && SAVEFILE[i] < 39) {
 		SAVEFILE[i] = STATS.pop();
 		c_stats++;
 	  } else if (
