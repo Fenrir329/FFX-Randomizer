@@ -18,9 +18,7 @@ Before adding HP+300, there were 35 different stat nodes on the standard grid. T
 
 Thats the amount of Magic+3 nodes that are usually present!
 
-Now with HP+300 included, there are 36 different stats on the standard grid, which still equates to an estimate of pretty exactly 14 of each stat,
-
-but now with 14 HP+200 and 14 HP+300 nodes, which is still not a lot, but its a randomizer after all.
+Now with HP+300 included, there are 36 different stats on the standard grid, which still equates to an estimate of pretty exactly 14 of each stat, but now with 14 HP+200 and 14 HP+300 nodes, which is still not a lot, but its a randomizer after all.
 
 You have the following options for ability-randomization:
 
