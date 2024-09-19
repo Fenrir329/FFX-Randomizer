@@ -35,7 +35,9 @@ function scrambleGrid() {
     new Uint8Array(0x6900) :
     new Uint8Array(0x64f8);
 
-  const RANDOM_STATS = document.getElementById("scramble-stats").checked;
+  const RANDOM_STATS = 
+    document.getElementById("scramble-randomize").value === "Scramble" ?
+    ;
 
   const RANDOM_ABILITIES = document.getElementById("scramble-abilities")
     .checked;
