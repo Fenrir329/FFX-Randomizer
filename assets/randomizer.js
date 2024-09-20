@@ -202,7 +202,6 @@ function scrambleGrid() {
   //Switch out Stats & Abilities & Position on Grid
   var c_stats = 0;
   var c_abilities = 0;
-  var c_position = 0;
   
   if (RANDOM_STARTING && STANDARDGRID) {
 	  for (var i = 0x312C; i <= 0x3138; i+=2){
