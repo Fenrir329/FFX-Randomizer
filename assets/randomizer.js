@@ -46,7 +46,12 @@ function scrambleGrid() {
   const REPOSITION_ABILITIES = 
     document.getElementById("ability-random").value === "Scatter";
 	
-
+  const RANDOM_STARTING =
+    document.getElementById("random-start").checked;
+	
+  const GAME_STARTING =
+    document.getElementById("albhed-ship").checked;
+	
   var TIDUS_NAME = document.getElementById("tidus-name").value;
 
   const FLEE = document.getElementById("enable-flee").checked;
@@ -56,6 +61,7 @@ function scrambleGrid() {
 	
   var SAVE_FILE_TEMPLATE = STANDARDGRID ? 
 	SAVE_FILE_STANDARD : SAVE_FILE_EXPERT;
+	
   for (var i = 0; i < SAVEFILE.length; i++) {
 	SAVEFILE[i] = SAVE_FILE_TEMPLATE[i];
   }
@@ -164,12 +170,13 @@ function scrambleGrid() {
 	STATS = shuffle(STATS);
 	STATUS_MSG.innerHTML += STATUS_CHECK;
   }
+  
   var allStats = STANDARDGRID? [0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x0b,0x0c,0x0d,0x0e,0x0f,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x19,0x1a,0x1b,0x1c,0x1d,0x1e,0x1f,0x20,0x21,0x22,0x23,0x24,0x25]
 							:  [0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a,0x0b,0x0c,0x0d,0x0e,0x0f,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x18,0x19,0x1a,0x1b,0x1c,0x1d,0x1e,0x1f,0x20,0x21,0x22,0x23,0x24,0x25,0x26];
 							
   var count = STANDARDGRID? 507 : 443;
   
-	if (RANDOM_STATS) {
+  if (RANDOM_STATS) {
         STATUS_MSG.innerHTML = "Randomizing stats...";
         var STATS = [];
         
@@ -179,8 +186,7 @@ function scrambleGrid() {
         // STATS = shuffle(STATS);
         // STATS = shuffle(STATS);
         STATUS_MSG.innerHTML += STATUS_CHECK;
-		
-    }
+  }
 	  
   if (RANDOM_ABILITIES) {
 	var ABILITIES = [];
@@ -193,9 +199,21 @@ function scrambleGrid() {
 	STATUS_MSG.innerHTML += STATUS_CHECK;
   }
 
-  //Switch out Stats & Abilities on Grid
+  //Switch out Stats & Abilities & Position on Grid
   var c_stats = 0;
   var c_abilities = 0;
+  var c_position = 0;
+  
+  if (RANDOM_STARTING && STANDARDGRID) {
+	  for (var i = 0x312C; i <= 0x3138; i+=2){
+		SAVEFILE[i] = Math.floor(Math.random() * 860);
+	  }
+  }
+  else if (RANDOM_STARTING) {
+	  for (var i = 0x312C; i <= 0x3138; i+=2){
+		SAVEFILE[i] = Math.floor(Math.random() * 805);	
+	  }
+  }
   
   if (REPOSITION_ABILITIES && (RANDOM_STATS || SCRAMBLE_STATS)){
 	for (var i = 0x2a; i < 0x7f; i++) {
@@ -203,6 +221,7 @@ function scrambleGrid() {
 	}
 	STATS = shuffle(STATS);
 	STATS = shuffle(STATS);
+	
 	for (var i = 0x222c; i < 0x28de; i += 2) {
 	  if ((SAVEFILE[i] > 1 && SAVEFILE[i] < 39) || (SAVEFILE[i] > 41 && SAVEFILE[i] < 127)) {
 		SAVEFILE[i] = STATS.pop();
@@ -210,6 +229,7 @@ function scrambleGrid() {
 	  }
 	}
   }
+  
   else if (SCRAMBLE_STATS || RANDOM_ABILITIES || RANDOM_STATS) {
 	for (var i = 0x222c; i < 0x28de; i += 2) {
 	  if ((SCRAMBLE_STATS || RANDOM_STATS) && SAVEFILE[i] > 1 && SAVEFILE[i] < 39) {
