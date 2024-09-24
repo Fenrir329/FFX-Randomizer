@@ -46,15 +46,20 @@ function scrambleGrid() {
   const REPOSITION_ABILITIES = 
     document.getElementById("ability-random").value === "Scatter";
 	
-  const RANDOM_STARTING =
+  const RANDOM_STARTING = 
     document.getElementById("random-start").checked;
 	
-  const GAME_STARTING =
+  const GAME_STARTING = 
     document.getElementById("albhed-ship").checked;
 	
-  var TIDUS_NAME = document.getElementById("tidus-name").value;
+  var TIDUS_NAME = 
+    document.getElementById("tidus-name").value;
 
-  const FLEE = document.getElementById("enable-flee").checked;
+  const FLEE = 
+    document.getElementById("enable-flee").checked;
+  
+  const BASESTAT_SHUFFLE = 
+    document.getElementById("shufflize-basestats").checked;
 
   const STANDARDGRID =
     document.getElementById("grid-select").value === "Standard";
@@ -96,7 +101,33 @@ function scrambleGrid() {
   SAVEFILE[0xfc] = 0x00;
   SAVEFILE[0xfd] = 0x00;
 
-  //Shuffle stats
+  // Shuffle Character Base-stats
+  if (BASESTAT_SHUFFLE) {
+    var HP_BASES = [520, 618, 475, 380, 644, 1030, 360];
+    var MP_BASES = [12, 10, 84, 92, 78, 33, 85];
+    var STR_BASES = [15, 14, 5, 5, 16, 20, 10];
+    var DEF_BASES = [5, 10, 5, 8, 15, 15, 8];
+    var MAG_BASES = [5, 10, 20, 20, 17, 5, 10];
+    var MDE_BASES = [5, 5, 20, 30, 5, 5, 8];
+    var AGL_BASES = [10, 7, 10, 5, 6, 5, 16];
+    var LCK_BASES = [18, 19, 17, 17, 18, 17, 18];
+    var EVA_BASES = [10, 5, 30, 40, 5, 5, 5];
+    var ACC_BASES = [10, 25, 3, 3, 5, 3, 5];
+  }
+  
+  //Randomize Grid-Starting Position of each Character
+  if (RANDOM_STARTING && STANDARDGRID) {
+	  for (var i = 0x312C; i <= 0x3138; i+=2){
+		SAVEFILE[i] = Math.floor(Math.random() * 860);
+	  }
+  }
+  else if (RANDOM_STARTING) {
+	  for (var i = 0x312C; i <= 0x3138; i+=2){
+		SAVEFILE[i] = Math.floor(Math.random() * 805);	
+	  }
+  }
+
+  //Shuffle Grid-stats
   if (SCRAMBLE_STATS && STANDARDGRID) {
 	STATUS_MSG.innerHTML = "Shuffling stats...";
 	var STATS = [];
@@ -213,16 +244,7 @@ function scrambleGrid() {
   var c_stats = 0;
   var c_abilities = 0;
   
-  if (RANDOM_STARTING && STANDARDGRID) {
-	  for (var i = 0x312C; i <= 0x3138; i+=2){
-		SAVEFILE[i] = Math.floor(Math.random() * 860);
-	  }
-  }
-  else if (RANDOM_STARTING) {
-	  for (var i = 0x312C; i <= 0x3138; i+=2){
-		SAVEFILE[i] = Math.floor(Math.random() * 805);	
-	  }
-  }
+  
   
   if (REPOSITION_ABILITIES && (RANDOM_STATS || SCRAMBLE_STATS)){
 	for (var i = 0x2a; i < 0x7f; i++) {
@@ -924,7 +946,7 @@ function scrambleGrid() {
   SAVEFILE[CRC_T] = CRC_Hash & 0xff;
   SAVEFILE[CRC_B] = CRC_Hash & 0xff;
 
-  //Signature
+  // Signature
   var VER_MAJ = 0;
   var VER_MIN = 15;
 
