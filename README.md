@@ -32,9 +32,7 @@ You now have the option to randomize the starting position of each character on 
 
 Some important information to keep in mind when choosing your randomizing mode:
 
-If you choose to randomize the grid stats instead of shufflizing them, you will end up
-
-with a LOT more luck nodes than usual and a LOT less HP nodes than usual.
+If you choose to randomize the grid stats instead of shufflizing them, you will end up with a LOT more luck nodes than usual and a LOT less HP nodes than usual.
 
 This happens because HP is usually by far the most present and luck the least present stat.
 
@@ -42,14 +40,12 @@ However, they now get randomized with the same weight, meaning they will have ro
 
 (This is true for each single stat)
 
-If you choose to shufflize character base stats, keep in mind that you can have for a example a very weak
+If you choose to shufflize character base stats, keep in mind that you can have for a example a very weak Tidus, which can make the early game very difficult. 
 
-Tidus, which can make the early game very difficult. Worst case he can end up with 360 HP, 5 Strength and so on.
+Worst case he can end up with 360 HP, 5 Strength and so on.
 
 If you choose to randomize the grid starting position of the characters, they may end up on a lock or behind a lot of locks.
 
-Even if the characters starts right on a lock-node (which cannot usually happen) you will need a 
-
-key-sphere to break the lock the character is standing on, in order to move on.
+Even if the characters starts right on a lock-node (which cannot usually happen) you will need a key-sphere to break the lock the character is standing on, in order to move on.
 
 To use, open _includes/generator.html in your browser  
