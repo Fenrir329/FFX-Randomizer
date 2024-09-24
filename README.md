@@ -48,8 +48,8 @@ Tidus, which can make the early game very difficult. Worst case he can end up wi
 
 If you choose to randomize the grid starting position of the characters, they may end up on a lock or behind a lot of locks.
 
-Even if the characters starts right on a lock-node (which cannot usually happen) you will need a key-sphere to break the
+Even if the characters starts right on a lock-node (which cannot usually happen) you will need a 
 
-lock the character is standing on, in order to move on.
+key-sphere to break the lock the character is standing on, in order to move on.
 
 To use, open _includes/generator.html in your browser  
