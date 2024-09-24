@@ -113,7 +113,7 @@ function scrambleGrid() {
     var LCK_BASES = shuffle([18, 19, 17, 17, 18, 17, 18]);
     var EVA_BASES = shuffle([10, 5, 30, 40, 5, 5, 5]);
     var ACC_BASES = shuffle([10, 25, 3, 3, 5, 3, 5]);
-	var BASEHP_OFFSET = [0x5610, 0x56A4, 0x5738, 0x57CC, 0x5860, 0x58F4, 0x5988];
+	var BASEHP_OFFSET = shuffle([0x5610, 0x56A4, 0x5738, 0x57CC, 0x5860, 0x58F4, 0x5988]);
 	for (var i = 0; i < BASEHP_OFFSET.length; i++){
 		var HP = HP_BASES.pop();
 		var HP_LOW = HP&0xff;
