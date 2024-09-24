@@ -103,16 +103,40 @@ function scrambleGrid() {
 
   // Shuffle Character Base-stats
   if (BASESTAT_SHUFFLE) {
-    var HP_BASES = [520, 618, 475, 380, 644, 1030, 360];
-    var MP_BASES = [12, 10, 84, 92, 78, 33, 85];
-    var STR_BASES = [15, 14, 5, 5, 16, 20, 10];
-    var DEF_BASES = [5, 10, 5, 8, 15, 15, 8];
-    var MAG_BASES = [5, 10, 20, 20, 17, 5, 10];
-    var MDE_BASES = [5, 5, 20, 30, 5, 5, 8];
-    var AGL_BASES = [10, 7, 10, 5, 6, 5, 16];
-    var LCK_BASES = [18, 19, 17, 17, 18, 17, 18];
-    var EVA_BASES = [10, 5, 30, 40, 5, 5, 5];
-    var ACC_BASES = [10, 25, 3, 3, 5, 3, 5];
+    var HP_BASES = shuffle([520, 618, 475, 380, 644, 1030, 360]);
+    var MP_BASES = shuffle([12, 10, 84, 92, 78, 33, 85]);
+    var STR_BASES = shuffle([15, 14, 5, 5, 16, 20, 10]);
+    var DEF_BASES = shuffle([5, 10, 5, 8, 15, 15, 8]);
+    var MAG_BASES = shuffle([5, 10, 20, 20, 17, 5, 10]);
+    var MDE_BASES = shuffle([5, 5, 20, 30, 5, 5, 8]);
+    var AGL_BASES = shuffle([10, 7, 10, 5, 6, 5, 16]);
+    var LCK_BASES = shuffle([18, 19, 17, 17, 18, 17, 18]);
+    var EVA_BASES = shuffle([10, 5, 30, 40, 5, 5, 5]);
+    var ACC_BASES = shuffle([10, 25, 3, 3, 5, 3, 5]);
+	var BASEHP_OFFSET = [0x5610, 0x56A4, 0x5738, 0x57CC, 0x5860, 0x58F4, 0x5988];
+	for (var i = 0; i < BASEHP_OFFSET.length; i++){
+		var HP = HP_BASES.pop();
+		var HP_LOW = HP&0xff;
+		var HP_HIGH = (HP&0xff00) >> 8;
+		var MP = MP_BASES.pop();
+		SAVEFILE[BASEHP_OFFSET[i]] = HP_LOW;
+		SAVEFILE[BASEHP_OFFSET[i]+1] = HP_HIGH;
+		SAVEFILE[BASEHP_OFFSET[i]+4] = MP;
+		SAVEFILE[BASEHP_OFFSET[i]+8] = STR_BASES.pop();
+		SAVEFILE[BASEHP_OFFSET[i]+9] = DEF_BASES.pop();
+		SAVEFILE[BASEHP_OFFSET[i]+10] = MAG_BASES.pop();
+		SAVEFILE[BASEHP_OFFSET[i]+11] = MDE_BASES.pop();
+		SAVEFILE[BASEHP_OFFSET[i]+12] = AGL_BASES.pop();
+		SAVEFILE[BASEHP_OFFSET[i]+13] = LCK_BASES.pop();
+		SAVEFILE[BASEHP_OFFSET[i]+14] = EVA_BASES.pop();
+		SAVEFILE[BASEHP_OFFSET[i]+15] = ACC_BASES.pop();
+		SAVEFILE[BASEHP_OFFSET[i]+24] = HP_LOW;
+		SAVEFILE[BASEHP_OFFSET[i]+25] = HP_HIGH;
+		SAVEFILE[BASEHP_OFFSET[i]+28] = MP;
+		SAVEFILE[BASEHP_OFFSET[i]+32] = HP_LOW;
+		SAVEFILE[BASEHP_OFFSET[i]+33] = HP_HIGH;
+		SAVEFILE[BASEHP_OFFSET[i]+36] = MP;
+	}	
   }
   
   //Randomize Grid-Starting Position of each Character
@@ -972,6 +996,13 @@ function scrambleGrid() {
 	0x3a,
 	0x85
   ];
+  // var SIGNATURE = [
+	
+  // ];
+  // var TEXT = "";
+  // for (var i=0; i < TEXT.length; i++){
+	  // SIGNATURE.push(TEXT.charCodeAt(i)+15);
+  // }
   if (VER_MAJ > 9) {
 	SIGNATURE.push(Math.floor(VER_MAJ / 10) + 0x30);
   }
