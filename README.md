@@ -4,6 +4,10 @@ Be sure to check out their work!
 
 The original randomizer without my changes can be found at: https://ffxrandomizer.zint.ch
 
+In case you need help, encounter problems or want to talk about FFX, I created a discord server :)
+
+https://discord.gg/EZXrkVyD
+
 ---------------------------------------------------------------
 
 To use, open _includes/generator.html in your browser. (You might need to enable javascript)
