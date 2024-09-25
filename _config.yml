@@ -1,9 +1,0 @@
-sass:
-  style: compressed
-  sass_dir: _sass
-
-remote_theme: bitpatty/tina
-
-title: FFX Randomizer
-url: "https://ffxrandomizer.zint.ch"
-markdown: kramdown
