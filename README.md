@@ -1,5 +1,23 @@
 Original Code source: https://github.com/BitPatty/FFXRandomizer
 
+Be sure to check out their work!
+
+The original randomizer without my changes can be found at: https://ffxrandomizer.zint.ch
+
+---------------------------------------------------------------
+
+To use, open _includes/generator.html in your browser. (You might need to enable javascript)
+
+The generator will output a savefile named ffx_001, which you will need to rename into ffx_Y with Y being a 3-digit number between 000 and 099.
+
+This savefile needs to be moved into the following directory:
+
+Documents/SQUARE ENIX/FINAL FANTASY X&X-2 HD Remaster/FINAL FANTASY X/ffx_Y
+
+Be careful not to accidently overwrite your already existing savefiles!!!
+
+--------------------------------------------------------------
+
 Changed some stuff from the original randomizer:
 
 You now cannot choose to opt out for stat randomization, but you can now choose between shufflizing 
@@ -48,4 +66,4 @@ If you choose to randomize the grid starting position of the characters, they ma
 
 Even if the characters starts right on a lock-node (which cannot usually happen) you will need a key-sphere to break the lock the character is standing on, in order to move on.
 
-To use, open _includes/generator.html in your browser  
+ 

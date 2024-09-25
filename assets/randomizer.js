@@ -971,38 +971,38 @@ function scrambleGrid() {
   SAVEFILE[CRC_B] = CRC_Hash & 0xff;
 
   // Signature
-  var VER_MAJ = 0;
-  var VER_MIN = 15;
+  var VER_MAJ = 1;
+  var VER_MIN = 0;
 
-  var SIGNATURE = [
-	0x69,
-	0x78,
-	0x7d,
-	0x83,
-	0x48,
-	0x72,
-	0x77,
-	0x3a,
-	0x61,
-	0x70,
-	0x7d,
-	0x73,
-	0x7e,
-	0x7c,
-	0x78,
-	0x89,
-	0x74,
-	0x81,
-	0x3a,
-	0x85
-  ];
   // var SIGNATURE = [
-	
+	// 0x69,
+	// 0x78,
+	// 0x7d,
+	// 0x83,
+	// 0x48,
+	// 0x72,
+	// 0x77,
+	// 0x3a,
+	// 0x61,
+	// 0x70,
+	// 0x7d,
+	// 0x73,
+	// 0x7e,
+	// 0x7c,
+	// 0x78,
+	// 0x89,
+	// 0x74,
+	// 0x81,
+	// 0x3a,
+	// 0x85
   // ];
-  // var TEXT = "";
-  // for (var i=0; i < TEXT.length; i++){
-	  // SIGNATURE.push(TEXT.charCodeAt(i)+15);
-  // }
+  var SIGNATURE = [
+	
+  ];
+  var TEXT = "Fenrirs.FFXrando.v";
+  for (var i=0; i < TEXT.length; i++){
+	  SIGNATURE.push(TEXT.charCodeAt(i)+15);
+  }
   if (VER_MAJ > 9) {
 	SIGNATURE.push(Math.floor(VER_MAJ / 10) + 0x30);
   }
