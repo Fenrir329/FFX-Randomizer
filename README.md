@@ -10,7 +10,7 @@ https://discord.gg/EZXrkVyD
 
 ---------------------------------------------------------------
 
-To use, open _includes/generator.html in your browser. (You might need to enable javascript)
+To use, open generator.html in your browser. (You might need to enable javascript)
 
 The generator will output a savefile named ffx_001, which you will need to rename into ffx_Y with Y being a 3-digit number between 000 and 099.
 
