@@ -5,8 +5,34 @@
 <script type="text/javascript" src="randomizer.js"></script>
 </head>
 <body>
+<style>
+ h1 { text-align: center; }
+ h2 { text-align: left; }
+ h3 { text-align: left; }
+ table, th, td { border:1px solid black;}
+ td { vertical-align: top; }
+</style>
 <div class="generator">
-  <h2>Generator</h2>
+  <h1>Final Fantasy X Randomized Savefile-Generator</h1>
+<br>
+<table style="width:100%">
+<tr>
+<th>
+ <h2> General Settings</h2>
+</th>
+<th>
+ <h2>Sphere Grid Settings</h2>
+</th>
+<th>
+ <h2>Character Settings</h2>
+</th>
+<th>
+ <h2>Blitzball Settings</h2>
+</th>
+</tr>
+<tr>
+<td>
+<br>
   <div class="generator-row">
     <div class="generator-title">
       <label for="version-select">
@@ -35,20 +61,6 @@
 <br>
   <div class="generator-row">
     <div class="generator-title">
-      <label for="grid-select">
-        Grid-Type:
-      </label>
-    </div>
-    <div class="generator-input">
-      <select name="grid-select" id="grid-select">
-        <option value="Standard" selected>Standard Grid</option>
-        <option value="Expert">Expert Grid</option>
-      </select>
-    </div>
-  </div>
-<br>
-  <div class="generator-row">
-    <div class="generator-title">
       <label for="ost-select">
         Soundtrack:
       </label>
@@ -57,6 +69,45 @@
       <select name="ost-select" id="ost-select">
         <option value="Original" selected>Original</option>
         <option value="Arranged">Arranged</option>
+      </select>
+    </div>
+  </div>
+<br>
+<div class="generator-row">
+    <div class="generator-title">
+      <label for="albhed-ship">
+        Starts the game on the Al Bhed ship:
+      </label>
+    </div>
+    <div class="generator-input">
+      <input name="albhed-ship" id="albhed-ship" type="checkbox">
+    </div>
+  </div>
+<br>
+  <div class="generator-row">
+    <div class="generator-title">
+      <label for="enable-flee">
+        Enable Flee for Tidus:
+      </label>
+    </div>
+    <div class="generator-input">
+      <input name="enable-flee" id="enable-flee" type="checkbox">
+    </div>
+  </div>
+  <br>
+</td>
+<td>
+<br>
+<div class="generator-row">
+    <div class="generator-title">
+      <label for="grid-select">
+        Grid-Type:
+      </label>
+    </div>
+    <div class="generator-input">
+      <select name="grid-select" id="grid-select">
+        <option value="Standard" selected>Standard Grid</option>
+        <option value="Expert">Expert Grid</option>
       </select>
     </div>
   </div>
@@ -92,6 +143,20 @@
 <br>
   <div class="generator-row">
     <div class="generator-title">
+      <label for="random-start">
+        Randomize starting position of each character
+      </label>
+    </div>
+    <div class="generator-input">
+      <input name="random-start" id="random-start" type="checkbox">
+    </div>
+  </div>
+  <br>
+</td>
+<td>
+<br>
+  <div class="generator-row">
+    <div class="generator-title">
       <label for="shufflize-basestats">
         Shufflize each base-stat across all characters 
 <br>
@@ -103,38 +168,33 @@
     </div>
   </div>
 <br>
-  <div class="generator-row">
+<div class="generator-row">
     <div class="generator-title">
-      <label for="random-start">
-        Randomize starting position of each character
+      <label for="overdrive-mode">
+        Randomize starting Overdrive-mode of each Character
       </label>
     </div>
     <div class="generator-input">
-      <input name="random-start" id="random-start" type="checkbox">
+      <input name="overdrive-mode" id="overdrive-mode" type="checkbox">
+    </div>
+  </div>
+  <br>
+</td>
+<td>
+<br>
+<div class="generator-row">
+    <div class="generator-title">
+      <label for="blitz-teams">
+        Randomize the 6 starting players of each Blitzball team:
+      </label>
+    </div>
+    <div class="generator-input">
+      <input name="blitz-teams" id="blitz-teams" type="checkbox">
     </div>
   </div>
 <br>
-  <div class="generator-row">
-    <div class="generator-title">
-      <label for="albhed-ship">
-        Starts the game on the Al Bhed ship:
-      </label>
-    </div>
-    <div class="generator-input">
-      <input name="albhed-ship" id="albhed-ship" type="checkbox">
-    </div>
-  </div>
-<br>
-  <div class="generator-row">
-    <div class="generator-title">
-      <label for="enable-flee">
-        Enable Flee for Tidus:
-      </label>
-    </div>
-    <div class="generator-input">
-      <input name="enable-flee" id="enable-flee" type="checkbox">
-    </div>
-  </div>
+</td>
+</table>
 <br>
   <div class="generator-row">
     <div class="generator-title">
@@ -148,7 +208,7 @@
 <br />
 <div>
   <h3>* Valid special characters for naming Tidus:</h3>
-  <br />
+  
   <p class="mono dark padded">
     " ! ; # $ % & ' ( ) * + , - . / : ; &lt; = ? [ ; ] ^ _ { | } ~ · 【 】 ♪ ♥ “ ” ‒ ↑ ↓ ← → « ° » ¿ À Á Â Ä Ç È É Ê Ë Ì Í Î Ï Ñ Ò
     Ó Ô Ö Ù Ú Û Ü Ü β à á â ä ç è é ê ë ì í î ï ñ ò ó ô ö ù ú û ü , ƒ „ … ™ § © ® ± ² ³ ¼ ½ ¾ × ÷ ★ ☆ ∞

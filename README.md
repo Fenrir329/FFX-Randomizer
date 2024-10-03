@@ -12,7 +12,7 @@ https://discord.gg/EZXrkVyD
 
 To use, open generator.html in your browser. (You might need to enable javascript)
 
-The generator will output a savefile named ffx_001, which you will need to rename into ffx_Y with Y being a 3-digit number between 000 and 099.
+The generator will output a savefile named ffx_001, which you will need to rename into ffx_Y with Y being a 3-digit number between 001 and 099.
 
 This savefile needs to be moved into the following directory:
 
