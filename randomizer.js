@@ -181,6 +181,8 @@ function scrambleGrid() {
 	  SAVEFILE[TEAM_OFFSET[i]+3] = PLAYERS.pop();
 	  SAVEFILE[TEAM_OFFSET[i]+4] = PLAYERS.pop();
 	  SAVEFILE[TEAM_OFFSET[i]+5] = PLAYERS.pop();
+	  SAVEFILE[TEAM_OFFSET[i]+6] = 60;
+	  SAVEFILE[TEAM_OFFSET[i]+7] = 60;
 	}
   }
 	  
