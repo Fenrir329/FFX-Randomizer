@@ -6,7 +6,7 @@ The original randomizer without my changes can be found at: https://ffxrandomize
 
 In case you need help, encounter problems or want to talk about FFX, I created a discord server :)
 
-https://discord.gg/EZXrkVyD
+https://discord.gg/K6JeUtDZZ7
 
 ---------------------------------------------------------------
 
