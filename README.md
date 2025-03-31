@@ -10,15 +10,13 @@ https://discord.gg/K6JeUtDZZ7
 
 ---------------------------------------------------------------
 
-To use, open generator.html in your browser. (You might need to enable javascript)
-
-The generator will output a savefile named ffx_001, which you will need to rename into ffx_Y with Y being a 3-digit number between 001 and 099.
+To use, open generator.html, which should open the generator in your browser. (You might need to enable javascript in your browser!)
+The generator will output a savefile named ffx_001. The 001 relates to the saveslot and can be repaced with 001 to 099.
+Make sure not to overwrite existing savefiles!
+In case the generator won´t put out a savefile, unzip the folder and try again.
 
 This savefile needs to be moved into the following directory:
-
-Documents/SQUARE ENIX/FINAL FANTASY X&X-2 HD Remaster/FINAL FANTASY X/ffx_Y
-
-Be careful not to accidently overwrite your already existing savefiles!!!
+Documents/SQUARE ENIX/FINAL FANTASY X&X-2 HD Remaster/FINAL FANTASY X/
 
 --------------------------------------------------------------
 
